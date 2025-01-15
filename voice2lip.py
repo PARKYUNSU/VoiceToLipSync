@@ -3,11 +3,11 @@ import os
 
 # OpenVoice 디렉토리 경로 추가
 sys.path.append(os.path.join(os.path.dirname(__file__), 'OpenVoice'))
-
 import subprocess
 import torch
 from OpenVoice.openvoice import se_extractor
 from OpenVoice.openvoice.api import BaseSpeakerTTS, ToneColorConverter
+
 
 def extract_audio_from_video(video_path, audio_path):
     command = ['ffmpeg', '-i', video_path, '-vn', '-acodec', 'libmp3lame', '-ab', '192k', audio_path]
@@ -49,14 +49,36 @@ def generate_speech_with_tts(text, reference_speaker, output_audio_path, device=
 
     print(f"Generated speech saved to {output_audio_path}")
 
+def mp3_to_wav(mp3_path, wav_path):
+    # mp3 파일을 wav 파일로 변환
+    command = ['ffmpeg', '-i', mp3_path, wav_path]
+    subprocess.run(command, check=True)
+    print(f"MP3 converted to WAV and saved to {wav_path}")
+
 def lip_sync_with_wav2lip(video_path, audio_path, output_video_path, checkpoint_path):
-    # Wav2Lip의 정확한 경로를 지정합니다.
+    # temp 디렉토리 경로 설정
+    temp_dir = '/Users/parkyunsu/project/VoiceToLipSync/Wav2Lip/temp'
+
+    # temp 디렉토리 존재 여부 확인 및 생성
+    if not os.path.exists(temp_dir):
+        os.makedirs(temp_dir)
+
+    # temp.wav 경로 설정
+    temp_wav_path = os.path.join(temp_dir, 'temp.wav')
+
+    # temp.wav 파일이 없다면 생성
+    if not os.path.exists(temp_wav_path):
+        # mp3 파일을 temp.wav로 변환
+        mp3_to_wav(audio_path, temp_wav_path)
+
+    # Wav2Lip 실행
     command = [
-        'python', 'Wav2Lip/inference.py',  # 정확한 경로
+        'python', 'Wav2Lip/inference.py', 
         '--checkpoint_path', checkpoint_path,
         '--face', video_path,
-        '--audio', audio_path
+        '--audio', temp_wav_path  # wav 파일을 사용
     ]
+    
     subprocess.run(command, check=True)
     print(f"Lip sync completed and saved to {output_video_path}")
 
@@ -73,7 +95,6 @@ def main():
 
     # 2. OpenVoice TTS로 음성 변형
     text = """Hi there! I hope you're doing well today. I just wanted to say how great it is to see your dedication and hard work. Keep pushing forward, and always remember that every step you take is progress. No matter the challenges, you’re doing amazing. Take it one day at a time and trust the process. Keep going, you're on the right path! Let's continue to move forward and keep striving for success. Together, we can make incredible things happen!"""
-
     generate_speech_with_tts(text, reference_speaker, tts_audio_path)
 
     # 3. Wav2Lip으로 입술 동기화
