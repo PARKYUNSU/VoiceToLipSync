@@ -88,7 +88,7 @@ def main():
     reference_speaker = extracted_audio_path  # 비디오에서 추출한 오디오를 reference_speaker로 사용
     tts_audio_path = './outputs/output_en_default.mp3'  # OpenVoice로 생성된 변형 음성 저장 경로
     output_video_path = './outputs/output_lip_synced.mp4'  # 입술 동기화된 비디오 저장 경로
-    wav2lip_checkpoint_path = './checkpoints/wav2lip.pth'  # Wav2Lip 체크포인트 경로
+    wav2lip_checkpoint_path = '/content/checkpoints/wav2lip.pth'  # Wav2Lip 체크포인트 경로
 
     # 1. 비디오에서 음성 추출
     extract_audio_from_video(video_path, extracted_audio_path)
