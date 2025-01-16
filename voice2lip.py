@@ -73,7 +73,7 @@ def lip_sync_with_wav2lip(video_path, audio_path, output_video_path, checkpoint_
 
     # Wav2Lip 실행
     command = [
-        'python', './Wav2Lip/inference.py', 
+        'python', '/content/VoiceToLipSync/Wav2Lip/inference.py',
         '--checkpoint_path', checkpoint_path,
         '--face', video_path,
         '--audio', temp_wav_path  # wav 파일을 사용
