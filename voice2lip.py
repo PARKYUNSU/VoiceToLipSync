@@ -58,6 +58,8 @@ def mp3_to_wav(mp3_path, wav_path):
 def lip_sync_with_wav2lip(video_path, audio_path, output_video_path, checkpoint_path):
     # temp 디렉토리 경로 설정
     temp_dir = './Wav2Lip/temp'
+    result_video_path = os.path.join(temp_dir, 'result.avi')
+
 
     # temp 디렉토리 존재 여부 확인 및 생성
     if not os.path.exists(temp_dir):
@@ -79,8 +81,14 @@ def lip_sync_with_wav2lip(video_path, audio_path, output_video_path, checkpoint_
         '--audio', temp_wav_path  # wav 파일을 사용
     ]
     
-    subprocess.run(command, check=True)
-    print(f"Lip sync completed and saved to {output_video_path}")
+    try:
+        result = subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding='utf-8', errors='ignore')
+        print("Lip sync completed and saved to {}".format(output_video_path))
+        print(result.stdout)  # 명령어 실행 후 출력된 결과
+    except subprocess.CalledProcessError as e:
+        print("Error executing the command.")
+        print(f"stdout: {e.stdout}")
+        print(f"stderr: {e.stderr}")
 
 def main():
     video_path = './VoiceToLipSync/sample.mp4'  # 입력 비디오 경로
