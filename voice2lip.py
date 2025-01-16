@@ -16,8 +16,8 @@ def extract_audio_from_video(video_path, audio_path):
 
 def generate_speech_with_tts(text, reference_speaker, output_audio_path, device="cuda"):
     # 모델과 체크포인트 설정
-    ckpt_base = './checkpoints/base_speakers/EN'
-    ckpt_converter = './checkpoints/converter'
+    ckpt_base = '/content/VoiceToLipSync/checkpoints/base_speakers/EN'
+    ckpt_converter = '/content/VoiceToLipSync/checkpoints/converter'
     output_dir = os.path.dirname(output_audio_path)
 
     # 모델 로딩
