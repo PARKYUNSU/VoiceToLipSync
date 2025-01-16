@@ -17,7 +17,7 @@ PyTorch implementation ~~~~
 
 
 ---
-~~
+Openvoice & Wav2Lip 
 
 ## Project Duration
 
