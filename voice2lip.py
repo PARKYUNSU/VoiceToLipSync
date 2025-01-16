@@ -30,12 +30,12 @@ def generate_speech_with_tts(text, reference_speaker, output_audio_path, device=
     os.makedirs(output_dir, exist_ok=True)
 
     # 스타일 추출
-    source_se = torch.load(f'{ckpt_base}/en_default_se.pth').to(device)
+    source_se = torch.load(f'{ckpt_base}/en_style_se.pth').to(device)
     target_se, audio_name = se_extractor.get_se(reference_speaker, tone_color_converter, target_dir='processed', vad=True)
 
     # 텍스트 음성 생성
     src_path = f'{output_dir}/tmp.mp3'
-    base_speaker_tts.tts(text, src_path, speaker='default', language='English', speed=1.0)
+    base_speaker_tts.tts(text, src_path, speaker='whispering', language='English', speed=1.0)
 
     # 톤 색상 변환
     encode_message = "@MyShell"
