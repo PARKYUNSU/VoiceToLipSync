@@ -91,11 +91,11 @@ def lip_sync_with_wav2lip(video_path, audio_path, output_video_path, checkpoint_
         print(f"stderr: {e.stderr}")
 
 def main():
-    video_path = './VoiceToLipSync/sample.mp4'  # 입력 비디오 경로
-    extracted_audio_path = './extracted_audio.mp3'  # 비디오에서 추출된 오디오 저장 경로
+    video_path = '/content/VoiceToLipSync/sample.mp4'  # 입력 비디오 경로
+    extracted_audio_path = '/content/VoiceToLipSync/extracted_audio.mp3'  # 비디오에서 추출된 오디오 저장 경로
     reference_speaker = extracted_audio_path  # 비디오에서 추출한 오디오를 reference_speaker로 사용
-    tts_audio_path = '/content/outputs/output_en_default.mp3'  # OpenVoice로 생성된 변형 음성 저장 경로
-    output_video_path = '/content/outputs/output_lip_synced.mp4'  # 입술 동기화된 비디오 저장 경로
+    tts_audio_path = '/content/VoiceToLipSync/output_en_default.mp3'  # OpenVoice로 생성된 변형 음성 저장 경로
+    output_video_path = '/content/VoiceToLipSync/outputs/output_lip_synced.mp4'  # 입술 동기화된 비디오 저장 경로
     wav2lip_checkpoint_path = '/content/VoiceToLipSync/checkpoints/wav2lip.pth'  # Wav2Lip 체크포인트 경로
 
     # 1. 비디오에서 음성 추출
