@@ -64,10 +64,10 @@ Click the badge below to run the demo:
 ### Lip Synced Video
 
 ### Original Video:
-https://github.com/PARKYUNSU/VoiceToLipSync/blob/main/sample/sample_video.mp4
+
 
 ### Lip Synced Video:
-https://github.com/PARKYUNSU/VoiceToLipSync/blob/main/sample/output_lip_synced.mp4
+
 
 ## References
 
