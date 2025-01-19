@@ -1,27 +1,27 @@
 # VoiceToLipSync
  
-PyTorch implementation ~~~~
+# LipSync-Voice: High-Quality Lip Sync Video Generation
+
+PyTorch implementation of LipSync-Voice: High-Quality Lip Sync Video Generation using Wav2Lip models.
 
 ### Tech Stack
 
 <p align="left">
-  <img src="https://img.shields.io/badge/Library-Detectron2-blue" alt="Detectron2"/>
-  <img src="https://img.shields.io/badge/Library-EfficientNet%20B7-teal" alt="EfficientNet B7"/>
-  <img src="https://img.shields.io/badge/Library-U2Net-yellow" alt="U2Net"/>
-  <img src="https://img.shields.io/badge/Framework-OpenPose-purple" alt="OpenPose"/>
-  <img src="https://img.shields.io/badge/Framework-Graphonomy-green" alt="Graphonomy"/>
-  <img src="https://img.shields.io/badge/Framework-DeepLabV3%2B-red" alt="DeepLabV3+"/>
-  <img src="https://img.shields.io/badge/Framework-HR--VITON-orange" alt="HR-VITON"/>
+
+  <img src="https://img.shields.io/badge/Library-PyTorch-lightgrey" alt="PyTorch"/>
+  <img src="https://img.shields.io/badge/Library-OpenCV-black" alt="OpenCV"/>
+  <img src="https://img.shields.io/badge/Library-Librosa-orange" alt="Librosa"/>
   <img src="https://img.shields.io/badge/Model-GAN-lightgrey" alt="GAN"/>
+  <img src="https://img.shields.io/badge/Library-Wav2Lip-blue" alt="Wav2Lip"/>
+  <img src="https://img.shields.io/badge/Library-OpenVoice-teal" alt="OpenVoice"/>
 </p>
 
-
 ---
-Openvoice & Wav2Lip 
+LipSync-Voice is a high-quality lip-sync video generation system that leverages deep learning to synchronize facial movements with speech. This framework processes input audio and video through ``LipSync.ipynb``, extracting speech features and synchronizing them with facial motions to create realistic lip-sync videos—all without requiring manual installation of dependencies.
 
 ## Project Duration
 
-**2025.01.09 - 2025.01.20**
+**2025.01.01 - 2025.01.10**
 
 <table>
   <tbody>
@@ -42,3 +42,39 @@ Openvoice & Wav2Lip
     </tr>
   </tbody>
 </table>
+
+## Presentation
+
+The presentation deck is available in the `deck` folder: [LipSync_Voice_Presentation.pdf](https://github.com/PARKYUNSU/LipSync-Voice/blob/main/deck/LipSync_Voice_Presentation.pdf).
+
+## How to Use
+
+1. Click the "Open in Colab" button below.
+2. Follow the instructions in the notebook to upload your video and audio files.
+3. Generate the lip-sync video and download the result.
+
+## LipSync-Voice Demo
+
+Click the badge below to run the demo:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PARKYUNSU/LipSync-Voice/blob/main/LipSync.ipynb)
+
+## Results
+
+### Original Video:
+https://github.com/PARKYUNSU/VoiceToLipSync/blob/main/sample/sample_video.mp4
+
+### Lip Synced Video:
+https://github.com/PARKYUNSU/VoiceToLipSync/blob/main/sample/output_lip_synced.mp4
+
+## References
+
+### Lip Syncing
+- **Wav2Lip**: A model for lip-syncing in videos, where the facial movements are synchronized with the audio.  
+  Repository: [https://github.com/Rudrabha/Wav2Lip](https://github.com/Rudrabha/Wav2Lip)
+
+### Speech Synthesis and Voice Conversion
+- **OpenVoice**: A deep learning framework for text-to-speech conversion with high-quality voice synthesis.  
+  Repository: [https://github.com/OpenVoice](https://github.com/OpenVoice)
+
+---
