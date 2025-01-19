@@ -1,6 +1,4 @@
-# VoiceToLipSync
- 
-# LipSync-Voice: High-Quality Lip Sync Video Generation
+# VoiceToLipSync: High-Quality Lip Sync Video Generation
 
 PyTorch implementation of LipSync-Voice: High-Quality Lip Sync Video Generation using Wav2Lip models.
 
