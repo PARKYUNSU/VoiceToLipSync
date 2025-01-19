@@ -61,13 +61,13 @@ Click the badge below to run the demo:
 
 ## Results
 
-### Lip Synced Video
+### Inference Video
 
 ### Original Video:
-
+https://github.com/user-attachments/assets/7fa8baf1-9024-40c6-8b2d-b2564d14d50e
 
 ### Lip Synced Video:
-
+https://github.com/user-attachments/assets/10b7704f-a8b9-43fa-8f7a-dd4823ee0f95
 
 ## References
 
