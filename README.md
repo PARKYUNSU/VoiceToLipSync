@@ -61,6 +61,8 @@ Click the badge below to run the demo:
 
 ## Results
 
+### Lip Synced Video
+
 ### Original Video:
 https://github.com/PARKYUNSU/VoiceToLipSync/blob/main/sample/sample_video.mp4
 
