@@ -57,7 +57,7 @@ The presentation deck is available in the `deck` folder: [LipSync_Voice_Presenta
 
 Click the badge below to run the demo:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PARKYUNSU/LipSync-Voice/blob/main/LipSync.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PARKYUNSU/VoiceToLipSync/blob/main/Voice2LipSync.ipynb)
 
 ## Results
 
