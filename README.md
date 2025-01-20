@@ -48,7 +48,7 @@ The presentation deck is available in the `deck` folder: [LipSync_Voice_Presenta
 ## How to Use
 
 1. Click the "Open in Colab" button below.
-2. Follow the instructions in the notebook to upload your video and audio files.
+2. Follow the instructions in the notebook to upload your video files.
 3. Generate the lip-sync video and download the result.
 
 ## LipSync-Voice Demo
