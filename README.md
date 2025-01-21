@@ -61,7 +61,7 @@ Click the badge below to run the demo:
 
 ### Inference Video
 
-### Original Video:
+### Reference Video:
 https://github.com/user-attachments/assets/7fa8baf1-9024-40c6-8b2d-b2564d14d50e
 
 ### Lip Synced Video:
