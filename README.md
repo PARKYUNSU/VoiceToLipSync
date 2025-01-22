@@ -15,7 +15,7 @@ PyTorch implementation of LipSync-Voice: High-Quality Lip Sync Video Generation 
 </p>
 
 ---
-LipSync-Voice is a high-quality lip-sync video generation system that leverages deep learning to synchronize facial movements with speech. This framework processes input audio and video through ``LipSync.ipynb``, extracting speech features and synchronizing them with facial motions to create realistic lip-sync videos—all without requiring manual installation of dependencies.
+LipSync-Voice is a high-quality lip-sync video generation system that leverages deep learning to synchronize facial movements with speech. This framework processes input a sample video through ``LipSync.ipynb``, extracting speech features and synchronizing them with facial motions to create realistic lip-sync videos—all without requiring manual installation of dependencies.
 
 ## Project Duration
 
