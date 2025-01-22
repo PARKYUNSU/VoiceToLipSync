@@ -51,7 +51,7 @@ The presentation deck is available in the `deck` folder: [LipSync_Voice_Presenta
 2. Follow the instructions in the notebook to upload your video files.
 3. Generate the lip-sync video and download the result.
 
-## LipSync-Voice Demo
+## VoiceToLipSync Demo
 
 Click the badge below to run the demo
 
