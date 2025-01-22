@@ -19,7 +19,7 @@ LipSync-Voice is a high-quality lip-sync video generation system that leverages 
 
 ## Project Duration
 
-**2025.01.01 - 2025.01.10**
+**2025.01.01 - 2025.01.20**
 
 <table>
   <tbody>
