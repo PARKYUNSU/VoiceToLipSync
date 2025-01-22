@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 
 # OpenVoice 디렉토리 경로 추가
 sys.path.append(os.path.join(os.path.dirname(__file__), 'OpenVoice'))
@@ -9,6 +10,9 @@ import torch
 from OpenVoice.openvoice import se_extractor
 from OpenVoice.openvoice.api import BaseSpeakerTTS, ToneColorConverter
 
+text = os.environ.get("VOICE2LIP_TEXT", """Hi there! I hope you're doing well today. I just wanted to say how great it is to see your dedication and hard work. Keep pushing forward, and always remember that every step you take is progress. No matter the challenges, you’re doing amazing. Take it one day at a time and trust the process. Keep going, you're on the right path! Let's continue to move forward and keep striving for success. Together, we can make incredible things happen!""")
+tts_speed = float(os.environ.get("VOICE2LIP_SPEED", "1.0"))
+
 # 비디오에서 오디오 추출
 def extract_audio_from_video(video_path, audio_path):
     command = ['ffmpeg', '-i', video_path, '-vn', '-acodec', 'libmp3lame', '-ab', '192k', audio_path]
@@ -16,7 +20,7 @@ def extract_audio_from_video(video_path, audio_path):
     print(f"Audio extracted and saved to {audio_path}")
 
 # TTS로 음성 생성
-def generate_speech_with_tts(text, reference_speaker, output_audio_path, device="cuda"):
+def generate_speech_with_tts(text, reference_speaker, output_audio_path, device="cuda", speed=1.0):
     ckpt_base = '/content/VoiceToLipSync/checkpoints/base_speakers/EN'
     ckpt_converter = '/content/VoiceToLipSync/checkpoints/converter'
     output_dir = os.path.dirname(output_audio_path)
@@ -36,7 +40,7 @@ def generate_speech_with_tts(text, reference_speaker, output_audio_path, device=
 
     # 텍스트 음성 생성
     src_path = f'{output_dir}/tmp.mp3'
-    base_speaker_tts.tts(text, src_path, speaker='default', language='English', speed=1.0)
+    base_speaker_tts.tts(text, src_path, speaker='default', language='English', speed=speed)
 
     # 톤 색상 변환
     encode_message = "@MyShell"
@@ -98,8 +102,7 @@ def main():
     extract_audio_from_video(video_path, extracted_audio_path)
 
     # 2. OpenVoice TTS로 음성 변형
-    text = """Hi there! I hope you're doing well today. I just wanted to say how great it is to see your dedication and hard work. Keep pushing forward, and always remember that every step you take is progress. No matter the challenges, you’re doing amazing. Take it one day at a time and trust the process. Keep going, you're on the right path! Let's continue to move forward and keep striving for success. Together, we can make incredible things happen!"""
-    generate_speech_with_tts(text, reference_speaker, tts_audio_path)
+    generate_speech_with_tts(text, reference_speaker, tts_audio_path, speed=tts_speed)
 
     # 3. Wav2Lip으로 입술 동기화
     lip_sync_with_wav2lip(video_path, tts_audio_path, output_video_path, wav2lip_checkpoint_path)
